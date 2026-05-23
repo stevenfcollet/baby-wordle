@@ -183,7 +183,8 @@ export default function Home() {
     {nameLength > 0 && (
       <>
         <p style={{ fontSize: 13, color: '#888', margin: 0 }}>
-          The name has {nameLength} letters · one guess per day
+          The name has {nameLength} letters · one guess per day</br>
+          Created by <a href="https://www.linkedin.com/in/steven-collet/" target="_blank" rel="noopener noreferrer">Steven Collet</a>
         </p>
 
         <br /><br />
@@ -222,6 +223,11 @@ export default function Home() {
             <button style={{ ...btn, background: 'transparent', color: '#555', border: '1px solid #ddd' }} onClick={() => { setMessage(null); setScreen('signup') }}>
               Sign up to play
             </button>
+            <p style="color:#000;font-size:12px;margin-top:32px;font-style:italic;">
+                      Experiencing issues? Contact <a href="mailto:steven.f.collet@gmail.com?subject=Baby%20Wordle%20Thomas%20and%20Eline" target="_blank" rel="noopener noreferrer">
+              steven.f.collet@gmail.com<br/>Created by <a href="https://www.linkedin.com/in/steven-collet/" target="_blank" rel="noopener noreferrer">Steven Collet</a>
+            </a>
+                    </p>
           </div>
         )}
 
@@ -234,6 +240,11 @@ export default function Home() {
             <input style={input} type="email" placeholder="Your email address" value={signupEmail} onChange={e => setSignupEmail(e.target.value)} onKeyDown={e => e.key === 'Enter' && handleSignup()} />
             <button style={btn} onClick={handleSignup} disabled={loading}>{loading ? 'Joining…' : 'Join the game'}</button>
             {message && <Msg m={message} />}
+            <p style="color:#000;font-size:12px;margin-top:32px;font-style:italic;">
+                      Experiencing issues? Contact <a href="mailto:steven.f.collet@gmail.com?subject=Baby%20Wordle%20Thomas%20and%20Eline" target="_blank" rel="noopener noreferrer">
+              steven.f.collet@gmail.com<br/>Created by <a href="https://www.linkedin.com/in/steven-collet/" target="_blank" rel="noopener noreferrer">Steven Collet</a>
+            </a>
+                    </p>
           </div>
         )}
 
