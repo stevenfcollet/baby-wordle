@@ -3,7 +3,7 @@ import Head from 'next/head'
 
 const TILE_COLORS = {
   correct: { bg: '#3B6D11', text: '#EAF3DE' },
-  present: { bg: '#854F0B', text: '#FAEEDA' },
+  present: { bg: '#efe300', text: '#FAEEDA' },
   absent:  { bg: '#5F5E5A', text: '#F1EFE8' },
 }
 
@@ -176,14 +176,26 @@ export default function Home() {
         <div style={{ textAlign: 'center', marginBottom: 24 }}>
           <h1 style={{ fontSize: 22, fontWeight: 600, margin: '0 0 4px' }}>Guess the baby's name</h1>
           {nameLength > 0 && (
-            <p style={{ fontSize: 13, color: '#888', margin: 0 }}>The name has {nameLength} letters · one guess per day</p>
+            <p style={{ fontSize: 13, color: '#888', margin: 0 }}>The name has {nameLength} letters · one guess per day
+          <br/>How to play<br/>Each guess must be a valid five-letter word.<br/>
+
+The color of a tile will change to show you how close your guess was.<br/>
+
+If the tile turns green, the letter is in the word, and it is in the correct spot.<br/>
+
+If the tile turns yellow, the letter is in the word, but it is not in the correct spot.<br/>
+
+If the tile turns gray, the letter is not in the word.</p>
           )}
         </div>
 
         {/* AUTH SCREEN */}
         {screen === 'auth' && (
           <div style={card}>
-            <p style={label}>Sign in to play</p>
+            <p style={label}>Sign in to play<br/>
+            If this is your first time, click &apos;sign up&apos; below.
+
+            </p>
             <input style={input} type="email" placeholder="Your email address" value={loginEmail} onChange={e => setLoginEmail(e.target.value)} onKeyDown={e => e.key === 'Enter' && handleLogin()} />
             <button style={btn} onClick={handleLogin} disabled={loading}>{loading ? 'Signing in…' : 'Sign in'}</button>
             {message && <Msg m={message} />}
