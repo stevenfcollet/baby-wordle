@@ -168,7 +168,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Guess the baby's name</title>
+        <title>Guess the name of Thomas en Eline's second baby</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
