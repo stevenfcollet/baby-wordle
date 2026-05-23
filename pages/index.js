@@ -3,8 +3,8 @@ import Head from 'next/head'
 
 const TILE_COLORS = {
   correct: { bg: '#3B6D11', text: '#EAF3DE' },
-  present: { bg: '#efe300', text: '#FAEEDA' },
-  absent:  { bg: '#5F5E5A', text: '#F1EFE8' },
+  present: { bg: '#bda107', text: '#FAEEDA' },
+  absent:  { bg: '#454544', text: '#F1EFE8' },
 }
 
 const KB_ROWS = [
@@ -174,18 +174,19 @@ export default function Home() {
 
       <main style={{ fontFamily: 'sans-serif', maxWidth: 480, margin: '0 auto', padding: '24px 16px', minHeight: '100vh' }}>
         <div style={{ textAlign: 'center', marginBottom: 24 }}>
-          <h1 style={{ fontSize: 22, fontWeight: 600, margin: '0 0 4px' }}>Guess the baby's name</h1>
+          <h1 style={{ fontSize: 22, fontWeight: 600, margin: '0 0 4px' }}>Guess the baby's name<br/>By Thomas, Eline &amp; Marcel</h1>
           {nameLength > 0 && (
             <p style={{ fontSize: 13, color: '#888', margin: 0 }}>The name has {nameLength} letters · one guess per day
-          <br/>How to play<br/>Each guess must be a valid five-letter word.<br/>
+          <br/><br/>How to play<br/>
+          <ul><li>Each guess must be a six-letter word.</li>
 
-The color of a tile will change to show you how close your guess was.<br/>
+<li>The color of a tile will change to show you how close your guess was.</li>
 
-If the tile turns green, the letter is in the word, and it is in the correct spot.<br/>
+<li>If the tile turns green, the letter is in the word, and it is in the correct spot.</li>
 
-If the tile turns yellow, the letter is in the word, but it is not in the correct spot.<br/>
+<li>If the tile turns yellow, the letter is in the word, but it is not in the correct spot.</li>
 
-If the tile turns gray, the letter is not in the word.</p>
+<li>If the tile turns gray, the letter is not in the word.</li></ul></p>
           )}
         </div>
 
