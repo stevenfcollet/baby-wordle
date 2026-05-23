@@ -183,7 +183,7 @@ export default function Home() {
     {nameLength > 0 && (
       <>
         <p style={{ fontSize: 13, color: '#888', margin: 0 }}>
-          The name has {nameLength} letters · one guess per day</br>
+          The name has {nameLength} letters · one guess per day<br/>
           Created by <a href="https://www.linkedin.com/in/steven-collet/" target="_blank" rel="noopener noreferrer">Steven Collet</a>
         </p>
 
