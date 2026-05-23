@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Head from 'next/head'
 
 export default function Admin() {
@@ -11,12 +11,15 @@ export default function Admin() {
   const [inviteEmail, setInviteEmail] = useState('')
   const [message, setMessage] = useState(null)
   const [loading, setLoading] = useState(false)
+  const [testEmail, setTestEmail] = useState('')
+  const [testType, setTestType] = useState('reminder')
+  const [testLoading, setTestLoading] = useState(false)
 
   const headers = { 'Content-Type': 'application/json', 'x-admin-password': password }
 
   const showMsg = (text, type = 'info') => {
     setMessage({ text, type })
-    setTimeout(() => setMessage(null), 4000)
+    setTimeout(() => setMessage(null), 5000)
   }
 
   const load = async (pw) => {
@@ -54,6 +57,17 @@ export default function Admin() {
   const removePlayer = async (id) => {
     await fetch('/api/admin-action', { method: 'POST', headers, body: JSON.stringify({ action: 'remove_player', playerId: id }) })
     load(password)
+  }
+
+  const sendTestEmail = async () => {
+    if (!testEmail.trim()) { showMsg('Enter an email address to send the test to', 'warn'); return }
+    setTestLoading(true)
+    const res = await fetch(`/api/test-email?to=${encodeURIComponent(testEmail)}&type=${testType}`, {
+      headers: { 'x-admin-password': password }
+    })
+    setTestLoading(false)
+    if (res.ok) showMsg(`Test "${testType}" email sent to ${testEmail}!`, 'success')
+    else showMsg('Failed to send test email — check your Resend API key', 'warn')
   }
 
   const s = { fontFamily: 'sans-serif', maxWidth: 640, margin: '0 auto', padding: '24px 16px' }
@@ -101,6 +115,34 @@ export default function Admin() {
         </div>
       </div>
 
+      {/* Test emails */}
+      <div style={card}>
+        <p style={{ fontWeight: 600, fontSize: 14, marginTop: 0 }}>✉️ Test emails</p>
+        <p style={{ fontSize: 13, color: '#666', margin: '0 0 12px' }}>Send a test email to yourself to preview how it looks.</p>
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          <input
+            style={{ ...inp, flex: 2, minWidth: 180 }}
+            type="email"
+            placeholder="your@email.com"
+            value={testEmail}
+            onChange={e => setTestEmail(e.target.value)}
+          />
+          <select
+            value={testType}
+            onChange={e => setTestType(e.target.value)}
+            style={{ ...inp, flex: 1, minWidth: 140, background: '#fff' }}
+          >
+            <option value="reminder">Daily reminder</option>
+            <option value="win">Winner email</option>
+            <option value="announcement">Birth announcement</option>
+          </select>
+          <button style={b('#185FA5', '#fff')} onClick={sendTestEmail} disabled={testLoading}>
+            {testLoading ? 'Sending…' : 'Send test'}
+          </button>
+        </div>
+      </div>
+
+      {/* Players */}
       <div style={card}>
         <p style={{ fontWeight: 600, fontSize: 14, marginTop: 0 }}>👥 Players</p>
         <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
