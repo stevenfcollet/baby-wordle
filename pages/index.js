@@ -168,9 +168,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Guess the name of Thomas en Eline's second baby</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
+  <title>Guess the name of Thomas en Eline's second baby</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+</Head>
 
       <main style={{ fontFamily: 'sans-serif', maxWidth: 480, margin: '0 auto', padding: '24px 16px', minHeight: '100vh' }}>
   <div style={{ textAlign: 'center', marginBottom: 24 }}>

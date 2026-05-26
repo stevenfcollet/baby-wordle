@@ -77,7 +77,13 @@ export default function Admin() {
 
   if (!authed) return (
     <main style={s}>
-      <Head><title>Admin — Baby Wordle</title></Head>
+      <Head>
+        
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+
+        <title>Admin — Baby Wordle</title></Head>
       <h1 style={{ fontSize: 20, marginBottom: 16 }}>Admin panel</h1>
       <div style={{ ...card, maxWidth: 320 }}>
         <input style={{ ...inp, width: '100%', marginBottom: 8 }} type="password" placeholder="Admin password" value={password} onChange={e => setPassword(e.target.value)} onKeyDown={e => e.key === 'Enter' && load(password)} />
