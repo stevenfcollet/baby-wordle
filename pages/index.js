@@ -203,6 +203,7 @@ export default function Home() {
 
             <li>If the tile turns gray, the letter is not in the word.</li>
             <li>Use the keyboard below to type the name and press enter to submit your guess</li>
+            <li><i>You have one guess per day, you will get a reminder email tomorrow</i></li>
           </ul>
         </div>
       </>
