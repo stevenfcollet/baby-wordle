@@ -32,9 +32,9 @@ export default function Home() {
   const [signupEmail, setSignupEmail] = useState('')
 
   const showMsg = (text, type = 'info') => {
-    setMessage({ text, type })
-    if (type !== 'success') setTimeout(() => setMessage(null), 4000)
-  }
+  setMessage({ text, type })
+  if (type === 'warn') setTimeout(() => setMessage(null), 4000)
+}
 
   const today = () => new Date().toISOString().split('T')[0]
 
