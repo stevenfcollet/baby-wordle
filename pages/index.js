@@ -202,6 +202,7 @@ export default function Home() {
             <li>If the tile turns yellow, the letter is in the word, but it is not in the correct spot.</li>
 
             <li>If the tile turns gray, the letter is not in the word.</li>
+            <li>Use the keyboard below to type the name and press enter tu submit your guess</li>
           </ul>
         </div>
       </>
