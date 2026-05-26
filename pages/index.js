@@ -218,7 +218,7 @@ export default function Home() {
             If this is your first time, click &apos;sign up&apos; below.
 
             </p>
-            <input style={input} type="email" placeholder="Your email address" value={loginEmail} onChange={e => setLoginEmail(e.target.value)} onKeyDown={e => e.key === 'Enter' && handleLogin()} />
+            <input style={input} type="email" placeholder="Your email address" value={loginEmail} onChange={e => setLoginEmail(e.target.value)} onKeyDown={e => e.key === 'Enter' && handleLogin()} autoComplete="email" />
             <button style={btn} onClick={handleLogin} disabled={loading}>{loading ? 'Signing in…' : 'Sign in'}</button>
             {message && <Msg m={message} />}
             <div style={divider}><span style={{ padding: '0 10px', background: '#fff', color: '#aaa', fontSize: 12 }}>or</span></div>
@@ -237,8 +237,8 @@ export default function Home() {
           <div style={card}>
             <button onClick={() => setScreen('auth')} style={{ background: 'none', border: 'none', color: '#888', fontSize: 13, cursor: 'pointer', marginBottom: 12, padding: 0 }}>← Back</button>
             <p style={label}>Create your account</p>
-            <input style={input} type="text" placeholder="Your name" value={signupName} onChange={e => setSignupName(e.target.value)} />
-            <input style={input} type="email" placeholder="Your email address" value={signupEmail} onChange={e => setSignupEmail(e.target.value)} onKeyDown={e => e.key === 'Enter' && handleSignup()} />
+            <input style={input} type="text" placeholder="Your name" value={signupName} onChange={e => setSignupName(e.target.value)} autoComplete="name" />
+<input style={input} type="email" placeholder="Your email address" value={signupEmail} onChange={e => setSignupEmail(e.target.value)} onKeyDown={e => e.key === 'Enter' && handleSignup()} autoComplete="email" />
             <button style={btn} onClick={handleSignup} disabled={loading}>{loading ? 'Joining…' : 'Join the game'}</button>
             {message && <Msg m={message} />}
             <p style={{ color: '#000', fontSize: 12, marginTop: 32, fontStyle: 'italic' }}>
